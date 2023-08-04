@@ -5,7 +5,7 @@ import threading
 import telebot
 
 # Replace 'TOKENHERE' with your actual bot token
-bot_token = 'TOKENHERE'
+bot_token = '6354335918:AAFiGd0j3cOQZZYsheraItGj7fhMaZa7TZs'
 
 # Create a new instance of the bot
 bot = telebot.TeleBot(bot_token)
