@@ -20,12 +20,7 @@ def download_music(message):
             url = message.text.split(' ', 1)[1]
 
             # Send a message to the user
-            bot.reply_to(message, "Attempting to download, please wait. If you are downloading a big album, you may need to wait a while for an update.")
-
-            # Check if the link contains the word "playlist"
-            if "playlist" in url.lower() or "artist" in url.lower():
-                bot.reply_to(message, "Sorry, artists/playlists are not allowed.")
-                return
+            bot.reply_to(message, "Download Started...")
 
             # Get the chat ID of the user who sent the message
             chat_id = message.chat.id
