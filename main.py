@@ -10,7 +10,7 @@ bot_token = '6354335918:AAFiGd0j3cOQZZYsheraItGj7fhMaZa7TZs'
 # Create a new instance of the bot
 bot = telebot.TeleBot(bot_token)
 
-@bot.message_handler(commands=['download'])
+@bot.message_handler(commands=['dl'])
 def download_music(message):
     """Download music from a link and send the files directly to the user."""
     
