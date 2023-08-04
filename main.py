@@ -17,10 +17,15 @@ def download_music(message):
     def run():
         try:
             print(f"Received message {message.message_id}!")
-            url = message.text.split(' ')[-1]
+            url = message.text.split(' ', 1)[1]
 
             # Send a message to the user
             bot.reply_to(message, "Attempting to download, please wait. If you are downloading a big album, you may need to wait a while for an update.")
+
+            # Check if the link contains the word "playlist"
+            if "playlist" in url.lower() or "artist" in url.lower():
+                bot.reply_to(message, "Sorry, artists/playlists are not allowed.")
+                return
 
             # Get the chat ID of the user who sent the message
             chat_id = message.chat.id
@@ -68,8 +73,9 @@ def download_music(message):
             # Delete the chat ID directory and its contents from the local file system
             shutil.rmtree(download_dir)
             print("Files sent and folder removed.")
+
         except Exception as err:
-            bot.reply_to(message, "Somting Went wrong")
+            bot.reply_to(message, "An error occurred, please try again later.")
 
     threading.Thread(target=run).start()
 
