@@ -83,6 +83,7 @@ def process_link(message):
                 bot.reply_to(message, "Invalid link. Please send a link containing 'napstar'.")
 
         except:
+             bot.reply_to(message, "Someting wnet wrong")
         finally:
             # Release the lock
             lock.release()
