@@ -62,18 +62,19 @@ def process_link(message):
 
                 # call  back queary
 
-               if give_link:
-                 zip_file_path = f"{download_dir}/{chat_id}.zip"
-                 with zipfile.ZipFile(zip_file_path, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zip_file:
+                '''if True:
+                  zip_file_path = f"{download_dir}/{chat_id}.zip"
+                  with zipfile.ZipFile(zip_file_path, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as zip_file:
                     for file_path in music_files:
                     zip_file.write(file_path, os.path.basename(file_path))
-                 upload_result = pixeldrain.upload(zip_file_path, anonymous=True)
-                 if not upload_result.json()["success"]:
-                     bot.send_message(chat_id=update.message.chat_id, text="Error uploading the zip file to Pixeldrain.")
-               else:
-                  for file_path in music_files:
-                    with open(file_path, 'rb') as file:
-                        bot.send_document(chat_id, file)
+                # upload_result = pixeldrain.upload(zip_file_path, anonymous=True)
+                 #if not upload_result.json()["success"]:
+                    # bot.send_message(chat_id=update.message.chat_id, text="Error uploading the zip file to Pixeldrain.")
+               else:'''
+            
+                for file_path in music_files:
+                  with open(file_path, 'rb') as file:
+                    bot.send_document(chat_id, file)
 
                 # Delete the chat ID directory and its contents from the local file system
                 os.rmdir(download_dir)
