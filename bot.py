@@ -12,7 +12,7 @@ def process_link(message):
         print(f"Received message {message.message_id}!")
         url = message.text
 
-        if 'napster' in url.lower():
+        if 'napster' in url:
             chat_id = message.chat.id
             bot.reply_to(message, "Download Started...")
             download_dir = f"downloads/{chat_id}"
